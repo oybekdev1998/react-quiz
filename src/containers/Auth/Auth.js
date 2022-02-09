@@ -3,7 +3,7 @@ import classes from './Auth.css'
 import Button from '../../components/UI/Button/Button'
 import Input from '../../components/UI/Input/Input'
 import is from 'is_js'
-import Axios from 'axios'
+import axios from 'axios'
 
 export default class Auth extends Component {
 
@@ -44,10 +44,11 @@ export default class Auth extends Component {
       returnSecureToken: true
     }
     try {
-      await Axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAo2NAmWIFt2F_Bm3xdeYTFOcNQ1fYmxnY', authData)
-      
-    } catch (error) {
-      console.log(error);
+      const response = await axios.post('https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyBRj1R0UEHzbzdDaOOQIhjqWUvDsusN4Mo', authData)
+
+      console.log(response.data)
+    } catch (e) {
+      console.log(e)
     }
   }
 
@@ -58,10 +59,11 @@ export default class Auth extends Component {
       returnSecureToken: true
     }
     try {
-      await Axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAo2NAmWIFt2F_Bm3xdeYTFOcNQ1fYmxnY', authData)
-      
-    } catch (error) {
-      console.log(error);
+      const response = await axios.post('https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyBRj1R0UEHzbzdDaOOQIhjqWUvDsusN4Mo', authData)
+
+      console.log(response.data)
+    } catch (e) {
+      console.log(e)
     }
   }
 

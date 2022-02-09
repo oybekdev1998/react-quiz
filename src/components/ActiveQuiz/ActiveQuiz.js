@@ -5,6 +5,7 @@ import AnswersList from './AnswersList/AnswersList'
 const ActiveQuiz = props => {
   return (
     <div className={classes.ActiveQuiz}>
+      console.log(answers)
       <p className={classes.Question}>
       <span>
         <strong>{props.answerNumber}.</strong>&nbsp;
@@ -18,7 +19,7 @@ const ActiveQuiz = props => {
         state={props.state}
         answers={props.answers}
         onAnswerClick={props.onAnswerClick}
-      />
+        />
     </div>
   )
 }
